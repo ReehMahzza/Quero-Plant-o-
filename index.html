@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protótipo - Quero Plantão (Profissional)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-primary: #0d9488; --brand-secondary: #475569; --brand-action: #10b981;
+            --brand-danger: #ef4444; --brand-success: #22c55e; --brand-alert: #f59e0b;
+            --brand-light: #f8fafc; --background: #f0f4f8;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--background); }
+        .bg-brand-primary { background-color: var(--brand-primary); } .bg-brand-action { background-color: var(--brand-action); }
+        .bg-brand-light { background-color: var(--brand-light); } .bg-brand-danger { background-color: var(--brand-danger); }
+        .bg-brand-success { background-color: var(--brand-success); } .bg-background { background-color: var(--background); }
+        .text-brand-primary { color: var(--brand-primary); } .text-brand-secondary { color: var(--brand-secondary); }
+        .text-brand-success { color: var(--brand-success); } .text-brand-alert { color: var(--brand-alert); }
+        .border-brand-primary { border-color: var(--brand-primary); } .border-brand-alert { border-color: var(--brand-alert); }
+        .ring-brand-primary { --tw-ring-color: var(--brand-primary); } .ring-brand-action { --tw-ring-color: var(--brand-action); }
+        .no-scrollbar::-webkit-scrollbar { display: none; } .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .screen { display: none; } /* Esconde todas as telas por padrão */
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4 bg-gray-800">
+
+    <div class="w-full max-w-sm h-[844px] bg-black border-8 border-gray-900 rounded-[40px] shadow-2xl overflow-hidden">
+        <div id="app-container" class="w-full h-full bg-background flex flex-col">
+            
+            <!-- ===== TELA DE LOGIN ===== -->
+            <div id="screen-login" class="screen w-full h-full flex-col p-6">
+                <div class="flex-grow flex flex-col justify-center">
+                    <div class="text-center mb-10">
+                        <h1 class="text-4xl font-bold text-brand-primary">Quero Plantão</h1>
+                    </div>
+                    <div class="text-center mb-8">
+                        <h2 class="text-2xl font-semibold text-brand-secondary">Acesse sua conta</h2>
+                        <p class="text-brand-secondary/70 mt-2">Encontre os melhores plantões perto de você.</p>
+                    </div>
+                    <form class="space-y-4" onsubmit="return false;">
+                        <div class="relative"><span class="absolute inset-y-0 left-0 flex items-center pl-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg></span><input type="email" placeholder="seu.email@exemplo.com" class="w-full pl-10 pr-4 py-3 bg-brand-light border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 ring-brand-primary focus:border-transparent transition"></div>
+                        <div class="relative"><span class="absolute inset-y-0 left-0 flex items-center pl-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg></span><input type="password" placeholder="••••••••" class="w-full pl-10 pr-4 py-3 bg-brand-light border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 ring-brand-primary focus:border-transparent transition"></div>
+                        <div class="text-right"><a href="#" class="text-sm font-medium text-brand-primary hover:underline">Esqueci minha senha</a></div>
+                        <button type="submit" data-target="screen-oportunidades" class="nav-button w-full bg-brand-action text-white font-bold py-3 px-4 rounded-lg shadow-md hover:bg-opacity-90 focus:outline-none focus:ring-2 ring-brand-action focus:ring-opacity-75 transition transform hover:scale-[1.02]">Entrar</button>
+                    </form>
+                </div>
+                <div class="text-center pb-4">
+                    <p class="text-sm text-brand-secondary">Ainda não tem uma conta? <a href="#" data-target="screen-cadastro" class="nav-button font-bold text-brand-primary hover:underline">Cadastre-se aqui</a></p>
+                </div>
+            </div>
+
+            <!-- ===== TELA DE CADASTRO ===== -->
+            <div id="screen-cadastro" class="screen w-full h-full flex-col">
+                <header class="flex-shrink-0 flex items-center justify-between p-4 bg-brand-light shadow-sm z-10">
+                    <button data-target="screen-login" class="nav-button text-brand-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg></button>
+                    <span id="step-indicator" class="text-sm font-semibold text-brand-secondary">Etapa 1 de 3</span>
+                    <div class="w-6"></div>
+                </header>
+                <main class="flex-grow overflow-y-auto p-6">
+                    <!-- Etapa 1 -->
+                    <div id="step-1" class="step-content">
+                        <div class="text-center mb-8"><h2 class="text-2xl font-bold text-brand-secondary">Vamos começar. Crie a sua conta.</h2><p class="text-gray-500 mt-2">É rápido e fácil.</p></div>
+                        <form class="space-y-4" onsubmit="return false;"><input type="text" placeholder="Nome Completo" class="w-full p-3 bg-brand-light border rounded-lg"><input type="email" placeholder="O seu melhor email" class="w-full p-3 bg-brand-light border rounded-lg"><input type="tel" placeholder="Telemóvel (DDD + Número)" class="w-full p-3 bg-brand-light border rounded-lg"><input type="password" placeholder="Crie uma senha" class="w-full p-3 bg-brand-light border rounded-lg"><input type="password" placeholder="Confirme a senha" class="w-full p-3 bg-brand-light border rounded-lg"><button type="button" data-step="2" class="step-button w-full bg-brand-action text-white font-bold py-3 rounded-lg mt-4">Continuar</button></form>
+                    </div>
+                    <!-- Etapa 2 -->
+                    <div id="step-2" class="step-content" style="display: none;">
+                        <div class="text-center mb-8"><h2 class="text-2xl font-bold text-brand-secondary">Fale-nos sobre si.</h2><p class="text-gray-500 mt-2">Informações do seu perfil profissional.</p></div>
+                        <div class="space-y-6"><div class="flex flex-col items-center"><label for="photo-upload" class="w-32 h-32 bg-gray-200 rounded-full flex items-center justify-center cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg></label><input id="photo-upload" type="file" class="hidden"><p class="mt-2 text-sm text-gray-500">Foto de Perfil</p></div><input type="text" placeholder="Número do COREN" class="w-full p-3 bg-brand-light border rounded-lg"><select class="w-full p-3 bg-brand-light border rounded-lg text-gray-500"><option>Estado do COREN</option><option value="SP">São Paulo</option></select></div>
+                        <div class="flex gap-4 mt-8"><button type="button" data-step="1" class="step-button w-full bg-gray-200 text-brand-secondary font-bold py-3 rounded-lg">Voltar</button><button type="button" data-step="3" class="step-button w-full bg-brand-action text-white font-bold py-3 rounded-lg">Continuar</button></div>
+                    </div>
+                    <!-- Etapa 3 -->
+                    <div id="step-3" class="step-content" style="display: none;">
+                        <div class="text-center mb-6"><h2 class="text-2xl font-bold text-brand-secondary">Quase lá!</h2><p class="text-gray-500 mt-2">Precisamos verificar os seus documentos para sua segurança.</p></div>
+                        <div class="space-y-4"><button class="w-full flex items-center justify-center gap-3 p-4 bg-brand-light border-2 border-dashed rounded-lg text-brand-secondary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>Enviar foto da carteira do COREN</button><button class="w-full flex items-center justify-center gap-3 p-4 bg-brand-light border-2 border-dashed rounded-lg text-brand-secondary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg>Fazer verificação facial (selfie)</button></div>
+                        <div class="flex gap-4 mt-8"><button type="button" data-step="2" class="step-button w-full bg-gray-200 text-brand-secondary font-bold py-3 rounded-lg">Voltar</button><button type="button" data-target="screen-oportunidades" class="nav-button w-full bg-brand-action text-white font-bold py-3 rounded-lg">Finalizar Cadastro</button></div>
+                    </div>
+                </main>
+            </div>
+
+            <!-- ===== ESTRUTURA PRINCIPAL DA APLICAÇÃO (APÓS LOGIN) ===== -->
+            <div id="app-main-view" class="screen w-full h-full flex-col">
+                <div id="main-content" class="flex-grow flex flex-col overflow-hidden">
+                    <!-- O conteúdo das telas (Oportunidades, etc.) será injetado aqui pelo JS -->
+                </div>
+                <footer class="flex-shrink-0 flex items-center justify-around p-2 bg-brand-light shadow-[0_-2px_5px_rgba(0,0,0,0.05)] z-10">
+                    <button data-target="screen-oportunidades" class="nav-button bottom-nav-button flex flex-col items-center gap-1"><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg><span class="text-xs">Oportunidades</span></button>
+                    <button data-target="screen-meus-plantoes" class="nav-button bottom-nav-button flex flex-col items-center gap-1"><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg><span class="text-xs">Meus Plantões</span></button>
+                    <button data-target="screen-ganhos" class="nav-button bottom-nav-button flex flex-col items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg><span class="text-xs">Ganhos</span></button>
+                    <button data-target="screen-perfil" class="nav-button bottom-nav-button flex flex-col items-center gap-1"><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg><span class="text-xs">Perfil</span></button>
+                </footer>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ÁREA DE TEMPLATES (CONTEÚDO DAS TELAS PÓS-LOGIN) -->
+    <template id="template-oportunidades">
+        <header class="flex-shrink-0 flex items-center justify-between p-4 bg-brand-light shadow-sm"><div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-secondary" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" /></svg><span class="font-semibold text-brand-secondary">São Paulo, SP</span></div><button data-target="screen-perfil" class="nav-button"><img src="https://placehold.co/40x40/0d9488/f8fafc?text=LA" alt="Avatar do utilizador" class="w-8 h-8 rounded-full"></button></header>
+        <main class="flex-grow flex flex-col overflow-hidden"><div class="flex-shrink-0 p-2 bg-background"><div class="flex justify-center bg-gray-200 rounded-lg p-1"><button id="list-view-btn" class="view-btn w-1/2 py-1.5 text-sm font-semibold text-brand-secondary bg-white rounded-md shadow-sm">Lista</button><button id="map-view-btn" class="view-btn w-1/2 py-1.5 text-sm font-semibold text-gray-500">Mapa</button></div></div><div id="list-view" class="flex-grow overflow-y-auto no-scrollbar p-4 space-y-4"><div class="bg-brand-light rounded-lg shadow-md border-l-4 border-brand-alert"><div class="p-4 space-y-3"><div class="flex justify-between items-start"><div><p class="font-bold text-brand-secondary">Hospital Sírio-Libanês</p><p class="text-sm text-gray-500">Técnico de Enfermagem - UTI</p></div><span class="bg-brand-alert/10 text-brand-alert text-xs font-bold px-2 py-1 rounded-full">URGENTE</span></div><p class="text-2xl font-bold text-brand-primary">R$ 450,00</p><div><p class="text-sm text-gray-600 font-medium">Hoje, 19:00 - 07:00 (12h)</p><p class="text-sm text-gray-400">a 3km de distância</p></div><button data-target="screen-detalhes-plantao" class="nav-button w-full bg-brand-action text-white font-bold py-2 rounded-lg mt-2">Ver Detalhes</button></div></div><div class="bg-brand-light rounded-lg shadow-md"><div class="p-4 space-y-3"><div><p class="font-bold text-brand-secondary">Hospital Albert Einstein</p><p class="text-sm text-gray-500">Enfermeiro(a) - Centro Cirúrgico</p></div><p class="text-2xl font-bold text-brand-primary">R$ 600,00</p><div><p class="text-sm text-gray-600 font-medium">Amanhã, 07:00 - 19:00 (12h)</p><p class="text-sm text-gray-400">a 8km de distância</p></div><button data-target="screen-detalhes-plantao" class="nav-button w-full bg-brand-action text-white font-bold py-2 rounded-lg mt-2">Ver Detalhes</button></div></div></div><div id="map-view" class="hidden flex-grow"><img src="https://placehold.co/390x600/e2e8f0/475569?text=Simulação+de+Mapa" alt="Mapa com pins de localização" class="w-full h-full object-cover"></div></main>
+    </template>
+    <template id="template-detalhes-plantao">
+        <header class="flex-shrink-0 flex items-center p-4 bg-brand-light shadow-sm z-10"><button data-target="screen-oportunidades" class="nav-button text-brand-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg></button><h1 class="flex-grow text-center text-lg font-semibold text-brand-secondary">Detalhes do Plantão</h1><div class="w-6"></div></header>
+        <main class="flex-grow overflow-y-auto no-scrollbar pb-24"><div class="bg-brand-light p-6"><h2 class="text-xl font-bold text-brand-secondary">Técnico de Enfermagem - UTI</h2><p class="text-gray-500 mt-1">Hospital Sírio-Libanês</p><p class="text-3xl font-extrabold text-brand-primary mt-4">R$ 450,00</p></div><div class="p-6 space-y-6"><div class="space-y-4"><div class="flex items-center gap-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg><div><p class="font-semibold text-brand-secondary">Hoje, 15 de Setembro</p></div></div><div class="flex items-center gap-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><div><p class="font-semibold text-brand-secondary">19:00 - 07:00 (12h)</p></div></div><div class="flex items-start gap-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-primary mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg><div><p class="font-semibold text-brand-secondary">Rua Dona Adma Jafet, 91</p><p class="text-sm text-gray-500">Bela Vista, São Paulo</p></div></div></div><div class="rounded-lg overflow-hidden shadow-md"><img src="https://placehold.co/400x200/e2e8f0/475569?text=Mapa+do+Local" alt="Mapa da localização" class="w-full h-auto object-cover"></div><div><h3 class="text-lg font-bold text-brand-secondary mb-3">Requisitos Necessários</h3><div class="flex flex-wrap gap-2"><span class="bg-gray-200 text-gray-700 text-sm font-semibold px-3 py-1 rounded-full">Experiência em UTI</span><span class="bg-gray-200 text-gray-700 text-sm font-semibold px-3 py-1 rounded-full">Punção Venosa</span><span class="bg-gray-200 text-gray-700 text-sm font-semibold px-3 py-1 rounded-full">BLS Ativo</span></div></div><div><h3 class="text-lg font-bold text-brand-secondary mb-3">Atividades Principais</h3><p class="text-sm text-gray-600">O profissional será responsável por administrar medicamentos, realizar curativos, monitorizar sinais vitais, auxiliar em procedimentos médicos e garantir o conforto e bem-estar do paciente na Unidade de Terapia Intensiva.</p></div><div><h3 class="text-lg font-bold text-brand-secondary mb-3">Sobre o Contratante</h3><div class="bg-brand-light rounded-lg shadow-md p-4 flex items-center justify-between"><p class="font-semibold text-brand-secondary">Avaliação: <span class="text-yellow-500 font-bold">4.8 ★</span></p><a href="#" class="text-sm font-semibold text-brand-primary hover:underline">Ver avaliações</a></div></div></div></main>
+        <footer class="absolute bottom-0 left-0 right-0 p-4 bg-white/80 backdrop-blur-sm border-t border-gray-200"><button data-target="screen-meus-plantoes" class="nav-button w-full bg-brand-action text-white font-bold py-3.5 px-4 rounded-lg shadow-lg">Quero este Plantão</button></footer>
+    </template>
+    <template id="template-meus-plantoes">
+        <header class="flex-shrink-0 flex items-center justify-center p-4 bg-brand-light shadow-sm z-10"><h1 class="text-lg font-semibold text-brand-secondary">Meus Plantões</h1></header>
+        <main class="flex-grow overflow-y-auto no-scrollbar p-6 space-y-8"><section><h2 class="text-xl font-bold text-brand-secondary mb-4">Próximos Plantões</h2><div class="bg-brand-light rounded-lg shadow-md overflow-hidden"><div class="p-4 space-y-3"><div><p class="font-bold text-lg text-brand-secondary">Amanhã, 16 de Setembro</p><p class="text-sm text-gray-500">19:00 - 07:00 (12h)</p></div><div class="border-t border-gray-200 pt-3"><p class="font-semibold text-brand-secondary">Hospital Albert Einstein</p><p class="text-sm text-gray-500">Enfermeiro(a) - Centro Cirúrgico</p><p class="text-sm text-gray-500 mt-1">Av. Albert Einstein, 627 - Morumbi</p></div></div><div class="p-3 bg-gray-50"><button data-target="screen-execucao-plantao" class="nav-button w-full flex items-center justify-center gap-2 bg-brand-action text-white font-bold py-2.5 px-4 rounded-lg shadow-md hover:bg-opacity-90 transition"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" /></svg><span>Iniciar Plantão (Check-in)</span></button></div></div></section><section><h2 class="text-xl font-bold text-brand-secondary mb-4">Histórico de Plantões</h2><div class="space-y-4"><div class="bg-brand-light rounded-lg shadow-md p-4"><div class="flex justify-between items-start"><div><p class="font-semibold text-brand-secondary">Hospital Sírio-Libanês</p><p class="text-sm text-gray-500">Téc. de Enfermagem - UTI</p><p class="text-sm text-gray-400 mt-1">10 de Setembro</p></div><span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded-full">Realizado</span></div><div class="flex justify-between items-center mt-4 pt-4 border-t border-gray-200"><div><span class="text-sm text-gray-500">Avaliação: </span><span class="font-bold text-yellow-500">5.0 ★</span></div><span class="font-bold text-brand-secondary">R$ 450,00 Recebidos</span></div></div><div class="bg-brand-light rounded-lg shadow-md p-4"><div class="flex justify-between items-start"><div><p class="font-semibold text-brand-secondary">BP - Beneficência Portuguesa</p><p class="text-sm text-gray-500">Téc. de Enfermagem - Pediatria</p><p class="text-sm text-gray-400 mt-1">05 de Setembro</p></div><span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded-full">Realizado</span></div><div class="flex justify-between items-center mt-4 pt-4 border-t border-gray-200"><div><span class="text-sm text-gray-500">Avaliação: </span><span class="font-bold text-yellow-500">4.9 ★</span></div><span class="font-bold text-brand-secondary">R$ 380,00 Recebidos</span></div></div></div></section></main>
+    </template>
+    <template id="template-execucao-plantao">
+        <header class="flex-shrink-0 flex items-center p-4 bg-brand-light shadow-sm z-10"><button data-target="screen-meus-plantoes" class="nav-button text-brand-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg></button><h1 id="header-title" class="flex-grow text-center text-lg font-semibold text-brand-secondary">Confirmar Início</h1><div class="w-6"></div></header>
+        <main class="flex-grow overflow-y-auto no-scrollbar p-6 pb-24"><div id="state-before-checkin"><div class="text-center mb-6"><h2 class="text-2xl font-bold text-brand-secondary">Pronto para iniciar?</h2></div><div class="space-y-6"><div class="bg-brand-light rounded-lg shadow-md p-4 space-y-2"><p class="text-lg font-bold text-brand-secondary">19:00 - 07:00</p><p class="font-semibold text-brand-secondary">Paciente Família Silva</p><p class="text-sm text-gray-500">Rua Dona Adma Jafet, 91 - Bela Vista, São Paulo</p></div><div class="rounded-lg overflow-hidden shadow-md"><img src="https://placehold.co/400x200/e2e8f0/475569?text=Mapa+do+Local" alt="Mapa da localização" class="w-full h-auto object-cover"></div><button id="checkin-button" class="w-full bg-brand-action text-white font-bold py-3.5 px-4 rounded-lg shadow-lg">Fazer Check-in e Iniciar Plantão</button></div></div><div id="state-after-checkin" style="display: none;"><div class="text-center mb-6"><div class="inline-flex items-center gap-2 bg-brand-success/10 text-brand-success font-bold text-sm px-4 py-1.5 rounded-full"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-success opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-brand-success"></span></span><span>EM ANDAMENTO</span></div></div><div class="text-center my-8"><p class="text-5xl font-bold text-brand-secondary">11h 59m</p><p class="text-gray-500">restantes</p></div><div class="bg-brand-light rounded-lg shadow-md p-4 space-y-2 mb-6"><p class="font-semibold text-brand-secondary">Paciente Família Silva</p><p class="text-sm text-gray-500">Rua Dona Adma Jafet, 91 - Bela Vista, São Paulo</p></div><div class="grid grid-cols-2 gap-4 mb-8"><button class="flex flex-col items-center justify-center p-4 bg-brand-light rounded-lg shadow-md text-brand-secondary"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg><span class="text-xs text-center">Ligar para Emergência</span></button><button class="flex flex-col items-center justify-center p-4 bg-brand-light rounded-lg shadow-md text-brand-secondary"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg><span class="text-xs text-center">Detalhes do Paciente</span></button></div><button data-target="screen-meus-plantoes" class="nav-button w-full bg-brand-danger text-white font-bold py-3.5 px-4 rounded-lg shadow-lg">Finalizar Plantão (Check-out)</button></div></main>
+    </template>
+    <template id="template-ganhos">
+        <header class="flex-shrink-0 flex items-center justify-between p-4 bg-brand-light shadow-sm z-10"><div class="w-24"></div><h1 class="text-lg font-semibold text-brand-secondary">Meus Ganhos</h1><a href="#" class="text-xs font-semibold text-brand-primary whitespace-nowrap">Gerir Conta</a></header>
+        <main class="flex-grow overflow-y-auto no-scrollbar p-6 pb-24 space-y-8"><section><div class="bg-brand-primary text-white rounded-xl shadow-lg p-6 flex flex-col items-start gap-4"><span class="text-sm font-medium opacity-80">Saldo Disponível para Saque</span><p class="text-4xl font-bold">R$ 830,00</p><button class="w-full bg-white text-brand-primary font-bold py-2.5 px-4 rounded-lg shadow-md hover:bg-opacity-90 transition">Solicitar Saque</button></div></section><section><h2 class="text-lg font-bold text-brand-secondary mb-3">Resumo dos Ganhos</h2><div class="grid grid-cols-2 gap-4"><div class="bg-brand-light rounded-lg shadow-md p-4"><p class="text-xs text-gray-500 mb-1">Ganhos no Mês</p><p class="text-xl font-bold text-brand-secondary">R$ 1.280,00</p></div><div class="bg-brand-light rounded-lg shadow-md p-4"><p class="text-xs text-gray-500 mb-1">Ganhos Totais</p><p class="text-xl font-bold text-brand-secondary">R$ 7.540,00</p></div></div></section><section><h2 class="text-lg font-bold text-brand-secondary mb-3">Transações Recentes</h2><div class="space-y-3"><div class="bg-brand-light rounded-lg shadow-md p-4 flex justify-between items-center"><div><p class="font-semibold text-brand-secondary">Hospital Sírio-Libanês</p><p class="text-sm text-gray-400">10 de Setembro</p></div><div class="text-right"><p class="font-bold text-brand-success">+ R$ 450,00</p><p class="text-xs text-gray-500">Pago</p></div></div><div class="bg-brand-light rounded-lg shadow-md p-4 flex justify-between items-center"><div><p class="font-semibold text-brand-secondary">BP - Beneficência Portuguesa</p><p class="text-sm text-gray-400">05 de Setembro</p></div><div class="text-right"><p class="font-bold text-brand-success">+ R$ 380,00</p><p class="text-xs text-gray-500">Pago</p></div></div><div class="bg-brand-light rounded-lg shadow-md p-4 flex justify-between items-center"><div><p class="font-semibold text-brand-secondary">Hospital Albert Einstein</p><p class="text-sm text-gray-400">01 de Setembro</p></div><div class="text-right"><p class="font-bold text-brand-success">+ R$ 450,00</p><p class="text-xs text-gray-500">Pago</p></div></div></div></section></main>
+    </template>
+    <template id="template-perfil">
+        <header class="flex-shrink-0 flex items-center justify-between p-4 bg-brand-light shadow-sm z-10">
+            <button data-target="screen-oportunidades" class="nav-button text-brand-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg></button>
+            <h1 class="text-lg font-semibold text-brand-secondary">Meu Perfil</h1>
+            <a href="#" class="text-sm font-semibold text-brand-primary">Editar</a>
+        </header>
+        <main class="flex-grow overflow-y-auto no-scrollbar p-6 pb-24"><div class="space-y-8"><section class="flex flex-col items-center text-center gap-4"><img src="https://placehold.co/120x120/0d9488/f8fafc?text=LA" alt="Foto do perfil de Lucas Almeida" class="w-28 h-28 rounded-full object-cover border-4 border-white shadow-lg"><div><h2 class="text-2xl font-bold text-brand-secondary">Lucas Almeida</h2><div class="mt-2 inline-flex items-center gap-2 bg-brand-success/10 text-brand-success font-bold text-sm px-4 py-1.5 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M9 2a1 1 0 00-1 1v1a1 1 0 001 1h2a1 1 0 001-1V3a1 1 0 00-1-1H9z" />
+                <path fill-rule="evenodd" d="M4 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm6 1a1 1 0 10-2 0v2H7a1 1 0 100 2h1v2a1 1 0 102 0v-2h1a1 1 0 100-2h-1V6z" clip-rule="evenodd" />
+            </svg>
+            <span>COREN VERIFICADO</span></div></div></section><section><div class="bg-brand-light rounded-lg shadow-md p-4 flex justify-around text-center"><div><p class="text-xl font-bold text-brand-secondary">4.9 <span class="text-yellow-500">★</span></p><p class="text-xs text-gray-500">Avaliação Média</p></div><div><p class="text-xl font-bold text-brand-secondary">32</p><p class="text-xs text-gray-500">Plantões Concluídos</p></div><div><p class="text-xl font-bold text-brand-secondary">98%</p><p class="text-xs text-gray-500">Taxa de Resposta</p></div></div></section><section><h3 class="text-lg font-bold text-brand-secondary mb-3">Minhas Especialidades</h3><div class="flex flex-wrap gap-2"><span class="bg-brand-primary/10 text-brand-primary text-sm font-semibold px-3 py-1 rounded-full">UTI Adulto</span><span class="bg-brand-primary/10 text-brand-primary text-sm font-semibold px-3 py-1 rounded-full">Punção Venosa</span><span class="bg-brand-primary/10 text-brand-primary text-sm font-semibold px-3 py-1 rounded-full">Cuidados Paliativos</span><span class="bg-brand-primary/10 text-brand-primary text-sm font-semibold px-3 py-1 rounded-full">Pediatria</span></div></section><section><h3 class="text-lg font-bold text-brand-secondary mb-3">O que dizem sobre o meu trabalho</h3><div class="space-y-4"><div class="bg-brand-light rounded-lg shadow-md p-4 space-y-2"><div class="flex justify-between items-center"><p class="text-yellow-500 font-bold">★★★★★</p><p class="text-xs text-gray-400">10/09/2025</p></div><p class="font-semibold text-brand-secondary">Hospital Sírio-Libanês</p><p class="text-sm text-gray-600 italic">"Profissional excelente, pontual e muito cuidadoso com os pacientes. Recomendo fortemente!"</p></div><div class="bg-brand-light rounded-lg shadow-md p-4 space-y-2"><div class="flex justify-between items-center"><p class="text-yellow-500 font-bold">★★★★★</p><p class="text-xs text-gray-400">05/09/2025</p></div><p class="font-semibold text-brand-secondary">BP - Beneficência Portuguesa</p><p class="text-sm text-gray-600 italic">"Lucas demonstrou grande habilidade técnica e empatia. Um prazer tê-lo na nossa equipa."</p></div></div></section></div></main>
+    </template>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainContent = document.getElementById('main-content');
+            const screens = document.querySelectorAll('.screen');
+            const appContainer = document.getElementById('app-container');
+
+            function navigateTo(targetId) {
+                const isMainScreen = targetId !== 'screen-login' && targetId !== 'screen-cadastro';
+                
+                screens.forEach(screen => {
+                    screen.style.display = 'none';
+                });
+
+                if (isMainScreen) {
+                    document.getElementById('app-main-view').style.display = 'flex';
+                    const templateId = `template-${targetId.replace('screen-', '')}`;
+                    const template = document.getElementById(templateId);
+                    
+                    if (template) {
+                        mainContent.innerHTML = '';
+                        mainContent.appendChild(template.content.cloneNode(true));
+                        attachInternalListeners(mainContent);
+                    }
+                    updateBottomNav(targetId);
+                } else {
+                    const targetScreen = document.getElementById(targetId);
+                    if(targetScreen) targetScreen.style.display = 'flex';
+                }
+                mainContent.scrollTop = 0;
+            }
+
+            function updateBottomNav(activeScreenId) {
+                const bottomNavButtons = document.querySelectorAll('.bottom-nav-button');
+                bottomNavButtons.forEach(button => {
+                    if (button.dataset.target === activeScreenId) {
+                        button.classList.remove('text-gray-400');
+                        button.classList.add('text-brand-primary');
+                        button.querySelector('span').classList.add('font-bold');
+                    } else {
+                        button.classList.add('text-gray-400');
+                        button.classList.remove('text-brand-primary');
+                        button.querySelector('span').classList.remove('font-bold');
+                    }
+                });
+            }
+
+            function attachListeners(container) {
+                container.querySelectorAll('.nav-button').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        navigateTo(button.dataset.target);
+                    });
+                });
+            }
+            
+            function attachInternalListeners(container) {
+                attachListeners(container); // Re-attach nav-button listeners for content inside templates
+                
+                const listViewBtn = container.querySelector('#list-view-btn');
+                const mapViewBtn = container.querySelector('#map-view-btn');
+                if(listViewBtn && mapViewBtn){
+                    const listView = container.querySelector('#list-view');
+                    const mapView = container.querySelector('#map-view');
+                    listViewBtn.addEventListener('click', () => {
+                        listView.style.display = 'block'; mapView.style.display = 'none';
+                        listViewBtn.classList.add('bg-white', 'shadow-sm'); listViewBtn.classList.remove('text-gray-500');
+                        mapViewBtn.classList.remove('bg-white', 'shadow-sm'); mapViewBtn.classList.add('text-gray-500');
+                    });
+                    mapViewBtn.addEventListener('click', () => {
+                        listView.style.display = 'none'; mapView.style.display = 'block';
+                        mapViewBtn.classList.add('bg-white', 'shadow-sm'); mapViewBtn.classList.remove('text-gray-500');
+                        listViewBtn.classList.remove('bg-white', 'shadow-sm'); listViewBtn.classList.add('text-gray-500');
+                    });
+                }
+                
+                const checkinButton = container.querySelector('#checkin-button');
+                if (checkinButton) {
+                    checkinButton.addEventListener('click', () => {
+                        container.querySelector('#state-before-checkin').style.display = 'none';
+                        container.querySelector('#state-after-checkin').style.display = 'block';
+                        container.querySelector('#header-title').textContent = 'Plantão em Andamento';
+                    });
+                }
+            }
+            
+            attachListeners(appContainer);
+
+            const stepIndicator = document.getElementById('step-indicator');
+            const stepContents = document.querySelectorAll('#screen-cadastro .step-content');
+            function goToStep(stepNumber) {
+                stepContents.forEach((content, index) => {
+                    content.style.display = (index + 1 === stepNumber) ? 'block' : 'none';
+                });
+                if (stepIndicator) stepIndicator.textContent = `Etapa ${stepNumber} de 3`;
+            }
+            document.querySelectorAll('#screen-cadastro .step-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    goToStep(parseInt(button.dataset.step));
+                });
+            });
+
+            navigateTo('screen-login'); 
+        });
+    </script>
+</body>
+</html>
+
